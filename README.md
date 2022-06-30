@@ -1,6 +1,6 @@
 # shoppinglist
 
-A new Flutter project.
+An app to record your purchases more features coming soon
 
 ## Getting Started
 
