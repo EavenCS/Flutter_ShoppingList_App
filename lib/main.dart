@@ -23,7 +23,7 @@ class NavigationBase extends StatefulWidget {
   @override
   State<NavigationBase> createState() => _NavigationBaseState();
 }
-
+///Drawer logic
 class _NavigationBaseState extends State<NavigationBase> {
   int currentIndex = 0;
 
@@ -61,9 +61,15 @@ class _NavigationBaseState extends State<NavigationBase> {
               },
             ),
             ListTile(
-              title: const Text('Settings'),
+              title: const Text('Fridge content'),
               onTap: () {
                 navigateToPage(2);
+              },
+            ),
+            ListTile(
+              title: const Text('Settings'),
+              onTap: () {
+                navigateToPage(3);
               },
               ),
           ],
@@ -71,10 +77,11 @@ class _NavigationBaseState extends State<NavigationBase> {
       ),
     );
   }
+  ///Index for the Drawer
   IndexedStack buildBody() {
     return IndexedStack(
       index: currentIndex,
-      children: [Listen(), Rezepte(), const Settings(),],
+      children: [Listen(), Rezepte(),const Settings(),],
     );
   }
 }
