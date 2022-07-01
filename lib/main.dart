@@ -17,17 +17,19 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class NavigationBase extends StatefulWidget {
   const NavigationBase({Key? key}) : super(key: key);
 
   @override
   State<NavigationBase> createState() => _NavigationBaseState();
 }
+
 ///Drawer logic
 class _NavigationBaseState extends State<NavigationBase> {
   int currentIndex = 0;
 
-  void navigateToPage (int newIndex) {
+  void navigateToPage(int newIndex) {
     setState(() {
       currentIndex = newIndex;
     });
@@ -41,15 +43,14 @@ class _NavigationBaseState extends State<NavigationBase> {
       drawer: Drawer(
         child: ListView(
           children: [
-            DrawerHeader
-              (child:Column(
+            DrawerHeader(
+                child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [Text('Oversight')
-              ],
+              children: const [Text('Oversight')],
             )),
             ListTile(
-              title: const Text('Listen'),
+              title: const Text('Shopping Item List'),
               onTap: () {
                 navigateToPage(0);
               },
@@ -71,22 +72,22 @@ class _NavigationBaseState extends State<NavigationBase> {
               onTap: () {
                 navigateToPage(3);
               },
-              ),
+            ),
           ],
         ),
       ),
     );
   }
+
   ///Index for the Drawer
   IndexedStack buildBody() {
     return IndexedStack(
       index: currentIndex,
-      children: [Listen(), Rezepte(),const Settings(),],
+      children: [
+        ShoppingListScreen(),
+        Rezepte(),
+        const Settings(),
+      ],
     );
   }
 }
-
-
-
-
-
