@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:shoppinglist/screens/add_shopping_item_screen.dart';
+import 'package:shoppinglist/screens/config.dart';
 import 'package:shoppinglist/screens/settings.dart';
+import 'package:shoppinglist/screens/shopping_item.dart';
 import 'screens/screens.dart';
 
 void main() => runApp(const MyApp());
@@ -10,10 +13,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Einkaufsliste',
-      theme: ThemeData.dark(),
-      home: const NavigationBase(),
+    return Configuration(
+      shoppingList: [],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Einkaufsliste',
+        theme: ThemeData.dark(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => NavigationBase(),
+          '/add': (context) => AddShoppingItemScreen(),
+        },
+      ),
     );
   }
 }
