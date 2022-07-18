@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shoppinglist/screens/add_shopping_item_screen.dart';
 import 'package:shoppinglist/screens/config.dart';
-import 'package:shoppinglist/screens/settings.dart';
-import 'package:shoppinglist/screens/shopping_item.dart';
-import 'screens/screens.dart';
+import 'package:shoppinglist/screens/screens.dart';
 
 void main() => runApp(const MyApp());
 
@@ -31,60 +29,75 @@ class MyApp extends StatelessWidget {
 
 class NavigationBase extends StatefulWidget {
   const NavigationBase({Key? key}) : super(key: key);
-
   @override
   State<NavigationBase> createState() => _NavigationBaseState();
 }
 
 ///Drawer logic
 class _NavigationBaseState extends State<NavigationBase> {
-  int currentIndex = 0;
+  int _currentIndex = 0;
 
   void navigateToPage(int newIndex) {
     setState(() {
-      currentIndex = newIndex;
+      _currentIndex = newIndex;
     });
   }
 
+  /*final List<Widget> _pages = [
+    ShoppingListScreen(),
+    const Settings(),
+    const Rezepte(), 
+  ]; */
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      appBar: AppBar(),
       body: buildBody(),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [Text('Oversight')],
-            )),
-            ListTile(
-              title: const Text('Shopping Item List'),
-              onTap: () {
-                navigateToPage(0);
-              },
-            ),
-            ListTile(
-              title: const Text('Receptive'),
-              onTap: () {
-                navigateToPage(1);
-              },
-            ),
-            ListTile(
-              title: const Text('Fridge content'),
-              onTap: () {
-                navigateToPage(2);
-              },
-            ),
-            ListTile(
-              title: const Text('Settings'),
-              onTap: () {
-                navigateToPage(3);
-              },
-            ),
-          ],
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+          child: GNav(
+            backgroundColor: Colors.black,
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: const Color.fromARGB(255, 32, 31, 31),
+            gap: 8,
+            onTabChange: (navigateToPage) {
+              ;
+            },
+            padding: const EdgeInsets.all(16),
+            tabs: [
+              GButton(
+                icon: Icons.list,
+                text: 'Einkaufsliste',
+                onPressed: () {
+                  navigateToPage(0);
+                },
+              ),
+              GButton(
+                icon: Icons.menu_book,
+                text: 'Rezepte',
+                onPressed: () {
+                  navigateToPage(1);
+                },
+              ),
+              GButton(
+                icon: Icons.inventory,
+                text: 'Essensplan',
+                onPressed: () {
+                  navigateToPage(2);
+                },
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Settings',
+                onPressed: () {
+                  navigateToPage(3);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -93,11 +106,11 @@ class _NavigationBaseState extends State<NavigationBase> {
   ///Index for the Drawer
   IndexedStack buildBody() {
     return IndexedStack(
-      index: currentIndex,
+      index: _currentIndex,
       children: [
         ShoppingListScreen(),
         Rezepte(),
-        const Settings(),
+        Settings(),
       ],
     );
   }

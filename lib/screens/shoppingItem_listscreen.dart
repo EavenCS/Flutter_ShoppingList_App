@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, list_remove_unrelated_type
-
+// ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -15,7 +14,14 @@ class ShoppingListScreen extends StatefulWidget {
 }
 
 class _ShoppingListScreenState extends State<ShoppingListScreen> {
-  var x = 2;
+  void _showSnackbar(BuildContext context, String text) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(text),
+      ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final shoppingList = context
@@ -24,6 +30,11 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30))),
+        centerTitle: true,
         // ignore: prefer_const_constructors
         title: Text('Meine Einkaufsliste'),
       ),
@@ -46,11 +57,9 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
                   ),
                 ],
               ),
-              // ignore: prefer_const_constructors
               endActionPane: ActionPane(
                 motion: ScrollMotion(),
                 children: [
-                  // ignore: prefer_const_constructors
                   SlidableAction(
                     onPressed: DoNothing,
                     backgroundColor: Color(0xFFFE4A49),
@@ -60,7 +69,6 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
                   ),
                 ],
               ),
-
               child: CheckboxListTile(
                   title: Text(shoppingList[index].name),
                   value: shoppingList[index].done,

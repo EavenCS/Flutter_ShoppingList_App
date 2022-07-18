@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shoppinglist/screens/shopping_item.dart';
-
 import 'config.dart';
 
 class AddShoppingItemScreen extends StatefulWidget {
-  const AddShoppingItemScreen({Key? key}) : super(key: key);
-
+  AddShoppingItemScreen({Key? key}) : super(key: key);
   @override
   State<AddShoppingItemScreen> createState() => _AddShoppingItemScreenState();
 }
 
 class _AddShoppingItemScreenState extends State<AddShoppingItemScreen> {
+  // ignore: prefer_final_fields
   TextEditingController _textEditingController =
-      TextEditingController(text: '');
+      TextEditingController(text: ' ');
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _AddShoppingItemScreenState extends State<AddShoppingItemScreen> {
           title: Text('Add Item'),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
               TextFormField(
@@ -39,8 +38,10 @@ class _AddShoppingItemScreenState extends State<AddShoppingItemScreen> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    shoppingList.add(ShoppingItem(
-                        name: _textEditingController.text, done: false));
+                    shoppingList.add(
+                      ShoppingItem(
+                          name: _textEditingController.text, done: false),
+                    );
                     Navigator.pop(context);
                   },
                   child: Text('Add')),
