@@ -1,6 +1,11 @@
 # shoppinglist
 
-An app to record your purchases more features coming soon
+Basic functions of the application are. 
+Features:
+Create shopping list,
+Add cook recipes and
+Create meal plan.
+
 
 ## Getting Started
 
