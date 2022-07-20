@@ -24,7 +24,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-# License
+# License: OpenSource
 The app or the source code may not be marketed no matter whether it is a free marketing or a paid one. 
 In the case of this app it is the opensource license.
 
