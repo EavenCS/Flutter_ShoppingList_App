@@ -6,9 +6,12 @@ I'm just teaching myself app development in Flutter through turorials or the web
 
 Basic functions of the application are. 
 Features:
-Create shopping list,
-Add cook recipes and
-Create meal plan.
+- Create shopping list (Sorry for the quality this is due to the Android emulator)
+![dwefrsg](https://user-images.githubusercontent.com/104131718/184913099-06c94990-f553-4888-8fc2-94002973a585.gif)
+
+
+- Add cook recipes and
+- Create meal plan.
 
 
 ## Getting Started
