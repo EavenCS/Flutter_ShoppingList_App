@@ -1,20 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:shoppinglist/screens/shopping_item.dart';
-import 'config.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-class AddShoppingItemScreen extends StatefulWidget {
-  AddShoppingItemScreen({Key? key}) : super(key: key);
-  @override
-  State<AddShoppingItemScreen> createState() => _AddShoppingItemScreenState();
-}
-
-class _AddShoppingItemScreenState extends State<AddShoppingItemScreen> {
-  // ignore: prefer_final_fields
-  TextEditingController _textEditingController =
-      TextEditingController(text: ' ');
-
-  @override
+@override
   Widget build(BuildContext context) {
     final shoppingList = context
         .dependOnInheritedWidgetOfExactType<Configuration>()!

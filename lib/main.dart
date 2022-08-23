@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shoppinglist/screens/add_shopping_item_screen.dart';
 import 'package:shoppinglist/screens/config.dart';
 import 'package:shoppinglist/screens/screens.dart';
+import 'package:shoppinglist/screens/FoodPlanScreen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -43,11 +44,6 @@ class _NavigationBaseState extends State<NavigationBase> {
     });
   }
 
-  /*final List<Widget> _pages = [
-    ShoppingListScreen(),
-    const Settings(),
-    const Rezepte(), 
-  ]; */
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -70,21 +66,21 @@ class _NavigationBaseState extends State<NavigationBase> {
             tabs: [
               GButton(
                 icon: Icons.list,
-                text: 'Einkaufsliste',
+                text: 'Shopping list',
                 onPressed: () {
                   navigateToPage(0);
                 },
               ),
               GButton(
                 icon: Icons.menu_book,
-                text: 'Rezepte',
+                text: 'Recipes',
                 onPressed: () {
                   navigateToPage(1);
                 },
               ),
               GButton(
                 icon: Icons.inventory,
-                text: 'Essensplan',
+                text: 'Meal Plan',
                 onPressed: () {
                   navigateToPage(2);
                 },
@@ -110,7 +106,8 @@ class _NavigationBaseState extends State<NavigationBase> {
       children: [
         ShoppingListScreen(),
         Rezepte(),
-        Settings(),
+        const FoodPlan(),
+        const SettingScreen(),
       ],
     );
   }

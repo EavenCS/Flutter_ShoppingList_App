@@ -8,8 +8,24 @@ class Rezepte extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Recipes',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: Container(
+          child: Text('Hello World!'),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          icon: const Icon(Icons.add_circle_outline),
+          label: const Text('Create Recipes'),
+          backgroundColor: Colors.indigoAccent,
+        ),
+      ),
     );
   }
 }
